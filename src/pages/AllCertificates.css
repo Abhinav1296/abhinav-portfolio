@@ -1,0 +1,158 @@
+.certs-page {
+  min-height: 100vh;
+  background-color: #050505;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.certs-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Back Button */
+.back-button {
+  display: inline-block;
+  color: #b084e9;
+  text-decoration: none !important; /* Force no underline */
+  font-size: 16px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  border: 1px solid #b084e9;
+  border-radius: 30px;
+}
+
+.back-button:hover {
+  background: #b084e9;
+  color: #000;
+}
+
+.certs-header h1 {
+  font-size: 70px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.certs-header h1 span {
+  color: #b084e9;
+}
+
+.certs-header p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Grid Layout */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Card Style */
+.certs-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  
+  /* ✅ CRITICAL FIX FOR UNDERLINES */
+  text-decoration: none !important;
+  color: inherit; /* Ensures text stays white/theme color */
+}
+
+/* Ensure children don't get underlined either */
+.certs-card * {
+    text-decoration: none !important;
+}
+
+.certs-card:hover {
+  transform: translateY(-10px);
+  border-color: #b084e9;
+  box-shadow: 0 20px 40px rgba(176, 132, 233, 0.15);
+}
+
+.certs-card-number {
+  font-size: 50px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.05);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  line-height: 1;
+}
+
+.certs-card:hover .certs-card-number {
+  color: rgba(176, 132, 233, 0.1);
+}
+
+.certs-content {
+  margin-top: 10px;
+}
+
+.certs-date {
+  font-size: 13px;
+  color: #b084e9;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.certs-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.certs-issuer {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-cert-btn {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.certs-card:hover .view-cert-btn {
+  opacity: 1;
+  color: #b084e9;
+}
+
+/* Responsive */
+@media only screen and (max-width: 768px) {
+  .certs-page {
+    padding: 60px 20px;
+  }
+
+  .certs-header h1 {
+    font-size: 45px;
+  }
+
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+}

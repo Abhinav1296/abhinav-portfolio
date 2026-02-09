@@ -1,0 +1,249 @@
+.cert-section {
+  transition: 0s;
+  height: auto;
+  min-height: 60vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden; /* Hide main scrollbar, let inner flex scroll via GSAP */
+}
+
+.cert-title-block {
+  width: var(--cWidth);
+  max-width: 1920px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.cert-title-block h2 {
+  font-size: 60px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.cert-title-block h2>span {
+  color: var(--accentColor);
+}
+
+.cert-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+/* --- HORIZONTAL SCROLL AREA --- */
+.cert-flex {
+  display: flex !important;
+  flex-wrap: nowrap !important; /* Forces horizontal layout */
+  overflow-x: hidden; /* Hide native scrollbar, we'll handle it with GSAP */
+  gap: 0;
+  
+  /* KEY FIX: Forces the container to grow as wide as ALL certificates combined */
+  width: fit-content !important; 
+  
+  padding-left: max(0px, calc((100vw - var(--cWidth)) / 2)); /* Centers start of list based on viewport */
+  padding-right: 100px; /* Buffer at the end */
+}
+
+/* --- INDIVIDUAL BOX STYLING --- */
+.cert-box {
+  width: 400px !important; /* Fixed width */
+  min-width: 400px !important; /* Forces it to never shrink */
+  flex-shrink: 0 !important;
+  padding: 60px 50px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-right: 1px solid #363636;
+  border-top: 1px solid #363636;
+  border-bottom: 1px solid #363636;
+  justify-content: space-between;
+  background: transparent;
+  min-height: 350px;
+}
+
+/* Alternate Layout for Visual Interest */
+.cert-flex .cert-box:nth-child(even) {
+  flex-direction: column-reverse;
+}
+
+.cert-content-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* --- TYPOGRAPHY --- */
+.cert-number {
+  font-size: 40px;
+  font-weight: 600;
+  color: #363636;
+  font-family: "Geist", sans-serif;
+}
+
+.cert-info h3 {
+  font-size: 28px;
+  line-height: 1.1;
+  margin: 0 0 10px 0;
+  font-weight: 500;
+  color: #fff;
+  font-family: "Lora", serif;
+}
+
+.cert-info p {
+  font-weight: 300;
+  color: var(--accentColor);
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* --- CTA BOX --- */
+.cert-box-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: none;
+}
+
+.see-all-certs {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.see-all-certs h3 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.see-all-btn {
+  padding: 15px 40px;
+  font-size: 16px;
+  color: #000;
+  background: var(--accentColor);
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.see-all-btn:hover {
+  transform: scale(1.05);
+}
+
+/* --- RESPONSIVE --- */
+@media only screen and (max-width: 1024px) {
+  .cert-box {
+    width: 450px !important;
+    min-width: 450px !important;
+    min-height: 350px;
+  }
+  .cert-title-block h2 {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .cert-flex {
+    flex-direction: column !important; /* Stack vertically on mobile */
+    width: 100% !important; /* Reset width to screen size for mobile */
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cert-box {
+    width: 100% !important; /* Full width on mobile */
+    min-width: unset !important;
+    border-right: none;
+    height: auto;
+    min-height: auto;
+  }
+  .cert-image-wrapper {
+      height: 200px; /* Slightly taller on mobile for better visibility */
+  }
+  .cert-title-block {
+    padding-left: 20px;
+  }
+}
+/* Styling for the new image structure */
+.cert-content-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.cert-image-wrapper {
+    width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0,0,0,0.3);
+}
+
+.cert-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the box without stretching */
+    transition: transform 0.5s ease;
+}
+
+/* Hover effect: Zoom image slightly */
+.cert-box:hover .cert-image-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Update these specific classes in your existing CSS */
+
+.cert-box {
+  /* Make cards consistent width */
+  min-width: 350px;
+  width: 350px;
+  height: 350px; /* Square shape works well for text cards */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  margin-right: 40px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cert-box:hover {
+  transform: translateY(-10px);
+  border-color: #b084e9;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cert-content-inner {
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.cert-number {
+  font-size: 14px;
+  font-weight: 700;
+  color: #b084e9;
+  background: rgba(0,0,0,0.3);
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* Ensure the flex container allows scrolling */
+.cert-flex {
+  display: flex;
+  flex-wrap: nowrap; /* Important for slider */
+  padding-left: 0; 
+}

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+  /* High-end serif for an ML Research/Engineering feel */
+  font-family: "Lora", serif;
+
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  color: #eae5ec;
+  background-color: var(--backgroundColor);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  --accentColor: #c2a4ff;
+  --backgroundColor: #0b080c;
+  --vh: 100vh;
+  --vh: 100svh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lora", serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: auto;
+  background-color: #000;
+  flex-grow: 1;
+  --cWidth: calc(100% - 30px);
+  --cMaxWidth: 1920px;
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobility and accessibility fixes */
+@media only screen and (max-width: 768px) {
+  body {
+    overflow: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+
+  html {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--accentColor);
+}
+
+.techstack {
+  width: 100%;
+  position: relative;
+  height: var(--vh);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background: linear-gradient(180deg, rgba(11, 8, 12, 0.95) 0%, rgba(11, 8, 12, 0.98) 100%);
+  background-color: var(--backgroundColor);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.techstack::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(194, 164, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(194, 164, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.techstack h2 {
+  font-size: 80px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 150px;
+  left: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  z-index: 3;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    --cWidth: 94%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .techstack h2 {
+    font-size: 40px;
+  }
+}
