@@ -57,7 +57,7 @@
 
 .what-noTouch:hover,
 .what-content-active {
-  min-height: 65% !important;
+  min-height: 75% !important;
   padding: 40px 50px;
   z-index: 10;
 }
